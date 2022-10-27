@@ -8,7 +8,7 @@ deserialization of JSON file to instances
 
 
 import json
-import models
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -54,8 +54,6 @@ class FileStorage:
             with open(FileStorage.__file_path, encoding='utf-8') as f:
                 objects_dict = json.load(f)
             for key, value in objects_dict.items():
-                class_name = value["__class__"]
-                class_name = models.classes[class_name]
-                FileStorage.__objects[key] = class_name(**value)
+                FileStorage.__objects[key] = BaseModel(**value)
         except FileNotFoundError:
             pass
