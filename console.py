@@ -8,6 +8,7 @@ Serves as the entry point of our command interpreter.
 import cmd
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
