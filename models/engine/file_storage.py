@@ -56,6 +56,6 @@ class FileStorage:
             for key, value in objects_dict.items():
                 class_name = value["__class__"]
                 class_name = models.classes[class_name]
-                FileStorage.__objects[key] = class_name(**val)
+                FileStorage.__objects[key] = class_name(**value)
         except FileNotFoundError:
             pass
